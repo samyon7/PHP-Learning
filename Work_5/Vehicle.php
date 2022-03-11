@@ -7,6 +7,7 @@ class Vehicle
     public $color;
     protected $noOfWheels; 
     private $engineNumber;
+    public static $counter = 0;
 
     function __construct($make = 'DefaultMake', $model = 'DefaultModel', $color = 'DefaultColor', $wheels = 4, $engineNo = 'XXXXXXXX')
     {
@@ -14,7 +15,8 @@ class Vehicle
         $this->model = $model;
         $this->color = $color;
         $this->noOfWheels = $wheels;
-        $this->engineNumber = $engineNo;
+	$this->engineNumber = $engineNo;
+	self::$counter++;
     }
 
     function getMake()
