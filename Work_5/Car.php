@@ -1,18 +1,26 @@
 <?php
 
-require_once'Vehicle.php';
+require_once'AbstractVehicle.php';
 
-class Car extends Vehicle{
+class Car extends AbstractVehicle{
 	public $doors = 4;
 	public $passengerCapacity = 5;
 	public $steeringWheel = true;
 	public $transmission = 'Manual';
+	private $hasKeyinIgnition = true;
+
+	public function start(){
+		if($this->hasKeyinIgnition){
+			$this->engineStatus = true;
+		}
+	}
 }
 
-$car1 = new Car('Honda', 'Civic', 'Red', 4, '23CJ4567');
-$car2 = new Car('Toyota', 'Allion', 'White', 4, '24CJ4568');
-$car3 = new Car('Hyundai', 'Elantra', 'Black', 4, '24CJ1234');
-$car4 = new Car('Chevrolet', 'Camaro', 'Yellow', 4, '23CJ9397');
-echo "Available cars are " . Car::$counter . PHP_EOL;
+$car = new Car('Honda', 'Civic', 'Red', 4, '23CJ4567');
+$car->start();
+echo "The car is " . ($car->getEngineStatus()?'running':'stopped') . PHP_EOL;
+$car->stop();
+echo "The car is " . ($car->getEngineStatus()?'running':'stopped') . PHP_EOL;
+
 
 ?>
