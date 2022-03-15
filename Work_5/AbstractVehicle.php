@@ -9,6 +9,7 @@ abstract class AbstractVehicle
     private $engineNumber;
     public static $counter = 0;
     protected $engineStatus = false;
+    protected $price;
 
     function stop(){
     	return $this->engineStatus = false;
@@ -51,6 +52,14 @@ abstract class AbstractVehicle
     function getEngineNumber()
     {
         return $this->engineNumber;
+    }
+
+    function getPrice(){
+	return $this->price;
+    }
+
+    function setPrice($price){
+    	$this->price = $price;
     }
 
     function setMake($make)
