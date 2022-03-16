@@ -43,6 +43,27 @@ abstract class AbstractVehicle
 	}
     }
 
+    function __call($method, $arguments){
+	    switch($method){
+	    	case 'honk':
+			if(isset($arguments[0])){
+				echo "Honking $arguments[0]...".PHP_EOL;
+			}
+			else{
+				echo "Honking ...".PHP_EOL;
+			}
+
+			if(isset($arguments[1])){
+				echo "$arguments[1] enabled ...".PHP_EOL;
+			}
+			break;
+
+		default:
+			echo "The method $method() is called".PHP_EOL;
+			break;
+	    }
+    }
+
     function getMake()
     {
         return $this->make;

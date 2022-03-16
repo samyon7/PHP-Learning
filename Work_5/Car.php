@@ -36,4 +36,7 @@ $car->year = 2015;
 echo " Year: ". $car->year . PHP_EOL;
 $car->wipers;
 
+$car->honk('gently');
+$car->honk('louder','siren');
+
 ?>
