@@ -7,6 +7,7 @@ abstract class AbstractVehicle
     public $color;
     protected $noOfWheels; 
     private $engineNumber;
+    private $runtimeAttributes = array();
     public static $counter = 0;
     protected $engineStatus = false;
     protected $price;
@@ -27,6 +28,19 @@ abstract class AbstractVehicle
         $this->noOfWheels = $wheels;
 	$this->engineNumber = $engineNo;
 	self::$counter++;
+    }
+
+    function __set($attribute, $value){
+    	$this->runtimeAttributes[$attribute] = $value;
+    }
+
+    function __get($attribute){
+    	if(array_key_exists($attribute, $this->runtimeAttributes)){
+		return $this->runtimeAttributes[$attribute];
+	}
+	else{
+		echo "Error : undefined attribute.".PHP_EOL;
+	}
     }
 
     function getMake()

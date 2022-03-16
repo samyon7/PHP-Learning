@@ -30,10 +30,10 @@ class Car extends AbstractVehicle implements DriveInterface{
 }
 
 $car = new Car('Honda', 'Civic', 'Red', 4, '23CJ4567');
-$car->changeSpeed(65);
-$car->applyBreak();
-$car->changeGear(4);
-$car->changeSpeed(75);
-$car->applyBreak();
+$car->ownerName = 'John Doe';
+echo " Owner: ". $car->ownerName . PHP_EOL;
+$car->year = 2015;
+echo " Year: ". $car->year . PHP_EOL;
+$car->wipers;
 
 ?>
