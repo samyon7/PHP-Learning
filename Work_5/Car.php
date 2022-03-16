@@ -3,14 +3,14 @@
 require_once'AbstractVehicle.php';
 require_once'DriveInterface.php';
 
-class Car extends AbstractVehicle implements DriveInterface{
+final class Car extends AbstractVehicle implements DriveInterface{
 	public $doors = 4;
 	public $passengerCapacity = 5;
 	public $steeringWheel = true;
 	public $transmission = 'Manual';
 	private $hasKeyinIgnition = true;
 
-	public function start(){
+	final public function start(){
 		if($this->hasKeyinIgnition){
 			$this->engineStatus = true;
 		}
