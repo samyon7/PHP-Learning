@@ -1,7 +1,9 @@
 <?php
 
-abstract class AbstractVehicle
-{
+require_once'PriceTrait.php';
+
+abstract class AbstractVehicle{
+	use PriceTrait;
     public $make;
     public $model;
     public $color;
@@ -87,14 +89,6 @@ abstract class AbstractVehicle
     function getEngineNumber()
     {
         return $this->engineNumber;
-    }
-
-    function getPrice(){
-	return $this->price;
-    }
-
-    function setPrice($price){
-    	$this->price = $price;
     }
 
     function setMake($make)

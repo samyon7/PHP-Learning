@@ -35,6 +35,6 @@ class Motorcycle extends AbstractVehicle implements DriveInterface{
 
 $motorcycle = new Motorcycle('Kawasaki', 'Ninja', 'Orange', 2, '53WVC14598');
 $motorcycle->setPrice(5000);
-echo "The price is ". $motorcycle->getPrice() . PHP_EOL;
+echo "The price is  ". $motorcycle->getPrice() . PHP_EOL;
 
 ?>
