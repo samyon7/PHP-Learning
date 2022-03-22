@@ -1,7 +1,7 @@
 <?php
 
-require_once'AbstractVehicle.php';
-require_once'DriveInterface.php';
+namespace Vehicle;
+spl_autoload_register();
 
 class Motorcycle extends AbstractVehicle implements DriveInterface{
 	public $noOfWheels = 2;
@@ -34,7 +34,14 @@ class Motorcycle extends AbstractVehicle implements DriveInterface{
 }
 
 $motorcycle = new Motorcycle('Kawasaki', 'Ninja', 'Orange', 2, '53WVC14598');
+$motorcycle->start();
+echo "The motorcycle is " . ($motorcycle->getEngineStatus()?'running': 'stopped') . PHP_EOL;
+$motorcycle->changeGear(3);
+$motorcycle->changeSpeed(35);
+$motorcycle->applyBreak();
+$motorcycle->stop();
+echo "The motorcycle is " . ($motorcycle->getEngineStatus()?'running':'stopped') . PHP_EOL;
 $motorcycle->setPrice(5000);
-echo "The price is  ". $motorcycle->getPrice() . PHP_EOL;
+echo "The price is ". $motorcycle->getPrice() . PHP_EOL;
 
 ?>

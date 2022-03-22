@@ -1,5 +1,7 @@
 <?php
 
+namespace Traits;
+
 trait PriceTrait{
 	public function getPrice(){
 		return $this->price;

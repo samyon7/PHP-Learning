@@ -1,7 +1,7 @@
 <?php
 
-require_once'AbstractVehicle.php';
-require_once'DriveInterface.php';
+namespace Vehicle;
+spl_autoload_register();
 
 final class Car extends AbstractVehicle implements DriveInterface{
 	public $doors = 4;
@@ -30,13 +30,14 @@ final class Car extends AbstractVehicle implements DriveInterface{
 }
 
 $car = new Car('Honda', 'Civic', 'Red', 4, '23CJ4567');
-$car->ownerName = 'John Doe';
-echo " Owner: ". $car->ownerName . PHP_EOL;
-$car->year = 2015;
-echo " Year: ". $car->year . PHP_EOL;
-$car->wipers;
-
-$car->honk('gently');
-$car->honk('louder','siren');
+$car->start();
+echo "The car is " . ($car->getEngineStatus()?'running':'stopped') . PHP_EOL;
+$car->changeGear(1);
+$car->changeSpeed(15);
+$car->changeGear(2);
+$car->changeSpeed(35);
+$car->applyBreak();
+$car->stop();
+echo "The car is " . ($car->getEngineStatus()?'running':'stopped')  . PHP_EOL;
 
 ?>

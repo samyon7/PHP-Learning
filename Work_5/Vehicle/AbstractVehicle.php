@@ -1,9 +1,9 @@
 <?php
 
-require_once'PriceTrait.php';
+namespace Vehicle;
 
 abstract class AbstractVehicle{
-	use PriceTrait;
+	use \Traits\PriceTrait;
     public $make;
     public $model;
     public $color;
